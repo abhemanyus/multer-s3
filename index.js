@@ -215,7 +215,7 @@ S3Storage.prototype._handleFile = function (req, file, cb) {
     })
 
     upload.on('httpUploadProgress', function (ev) {
-      if (ev.total) currentSize = ev.total
+      currentSize = ev.loaded
     })
 
     util.callbackify(upload.done.bind(upload))(function (err, result) {
